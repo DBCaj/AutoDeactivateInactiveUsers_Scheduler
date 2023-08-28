@@ -36,7 +36,7 @@ class DeactivateInactiveUsers extends Command
       //e.g., $inactiveThreshold = Carbon::now()->subDays(30);
       $inactiveThreshold = Carbon::now()->subMonth();
       
-      //this will change inactivate users 'active' value to 0 if they have been inactive for 1 minute.
+      //this will change inactivate users 'active' value to 0 if they have been inactive for a month.
       User::where('active', 1)
       ->where('last_activity', '<', $inactiveThreshold)
       ->update([
